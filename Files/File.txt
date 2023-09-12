@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Roboto+Condensed:wght@400;700&family=Inconsolata:wght@400&family=Roboto:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/v3.3.4/site.css">
+<script src="/v3.3.4/main.js" type="text/javascript"></script>
+<script type="text/javascript">
+	(function(){
+		var bsa_optimize=document.createElement('script');
+		bsa_optimize.type='text/javascript';
+		bsa_optimize.async=true;
+		bsa_optimize.src='https://cdn4.buysellads.net/pub/cplusplus.js?'+(new Date()-new Date()%600000);
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa_optimize);
+	})();
+</script>
+</head>
+
+<body>
+<div id="I_container">
+<div id="I_top">
+<div id="I_header">
+
+<div id="I_logo"><a href="/">
+<div id="I_icon" title="C++"></div>
+<div id="I_site" title="cplusplus.com">
+<svg xmlns='http://www.w3.org/2000/svg' style='fill:#fff' viewBox='0 0 120 36'><text x='0' y='22' textLength='120' lengthAdjust='spacingAndGlyphs' font-family='Roboto,sans-serif' font-size='22px' font-style='italic' font-weight='bold' style='fill:#fff'>cplusplus</text><text id='tld' x='80' y='34' textLength='38' lengthAdjust='spacingAndGlyphs' font-family='Roboto,arial' font-size='12px' font-style='italic' font-weight='bold' style='fill:#cde'>.com</text></svg>
+</div>
+</a></div>
+
+<div id="I_navsch">
+
+<div id="I_navigation">
+<ul>
+<li><a href="/doc/">TUTORIALS</a></li>
+<li><a href="/reference/">REFERENCE</a></li>
+<li><a href="/articles/">ARTICLES</a></li>
+<li><a href="/forum/">FORUM</a></li>
+</ul>
+</div>
+
+<div id="I_search">
+
+    <script async src="https://cse.google.com/cse.js?cx=partner-pub-7688470879129516:0646519325"></script>
+    <div class="gcse-searchbox-only" enableAutoComplete="true" resultsUrl="'.$url_search.'"></div>
+
+</div>
+
+</div>
+<div id="I_user" class="C_LoginBox" data-ajax="ajax"></div></div>
+</div>
+
+<div id="I_mid">
+
+<div id="I_cols">
+
+<div id="I_left">
+<div id="I_nav">
+
+<div class="sect root">
+<h3><b><a href="/">C++</a></b></h3>
+<ul>
+<li class="folder selected doc"><a href="/doc/">Tutorials</a></li><li class="folder reference"><a href="/reference/">Reference</a></li><li class="folder articles"><a href="/articles/">Articles</a></li><li class="folder forum"><a href="/forum/">Forum</a></li>
+</ul>
+</div><div class="C_BoxLabels C_BoxSort sect">
+            <h3><b><a href="/doc/">Tutorials</a></b></h3>
+            <ul><li class="folder">
+            
+            <a href="/doc/tutorial/" title="C++ Language">
+            <span>C++ Language</span>
+            </a>
+            </li>
+<li class="">
+            
+            <a href="/doc/ascii/" title="Ascii Codes">
+            <span>Ascii Codes</span>
+            </a>
+            </li>
+<li class="">
+            
+            <a href="/doc/boolean/" title="Boolean Operations">
+            <span>Boolean Operations</span>
+            </a>
+            </li>
+<li class="">
+            
+            <a href="/doc/hex/" title="Numerical Bases">
+            <span>Numerical Bases</span>
+            </a>
+            </li>
+</ul>
+            </div><div id="I_subnav"></div></div>
+</div>
+<div id="I_main">
+
+<div id="I_bar">
+<div id="I_burger">
+<svg focusable="false" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+</div>
+<ul>
+<li class="here">Tutorials</li>
+</ul>
+</div>
+<div class="C_bn" style="width:100%">
+    <!-- cplusplus_S2S_Leaderboard_ATF_ROS -->
+    <style>
+        @media only screen and (min-width: 0px) and (min-height: 0px) {
+            div[id^="bsa-zone_1661765511757-3_123456"] {
+                min-width: 300px;
+                min-height: 50px;
+            }
+        }
+        @media only screen and (min-width: 640px) and (min-height: 0px) {
+            div[id^="bsa-zone_1661765511757-3_123456"] {
+                min-width: 468px;
+                min-height: 60px;
+            }
+        }
+    </style>
+    <div id="bsa-zone_1661765511757-3_123456"></div>
+    </div>
+<div id="I_content">
+<div class="C_doc"><h1>Tutorials</h1>
+<table class="none"><tr><td><a href="tutorial/"><img src="/img/tutorial.gif" alt="Tutorial"></a></td>
+<td>
+<br>
+<h4><a href="tutorial/">C++ Language Tutorial</a></h4>
+<a href="tutorial/">Learn C++ from its basics or introduce yourself to new language features with The C++ Language Tutorial.<br>
+A fast paced self-teaching tutorial covering the modern concepts of this programming language.<br>
+</a></td></tr>
+</table>
+<br>
+<h3>Supplemental papers</h3>
+<ul>
+<li><a href="ascii/">ASCII Codes</a></li>
+<li><a href="hex/">Numerical bases</a></li>
+<li><a href="boolean/">Boolean operations</a></li>
+</ul>
+</div><div id="CH_bb"></div>
+</div>
+</div>
+<div id="I_midclear"></div>
+</div>
+</div>
+
+<div id="I_bottom">
+<div id="I_footer">
+<a href="/">Home page</a> | <a href="/privacy.do">Privacy policy</a><br>&copy; cplusplus.com, 2000-2023 - All rights reserved - <i>v3.3.4s</i>
+<br><a href="/contact.do?referrer=%2Fdoc%2F" rel="nofollow">Spotted an error? contact us</a>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+ cplusplus.onSession ( function(us) {
+		el=document.getElementById('CH_bb'); el.innerHTML='';
+		if (us.auth("su")) {
+			el.appendChild(cplusplus.btn('New Page','New Page','new','/doc/new.do'));
+			el.appendChild(cplusplus.btn('Edit Page','Edit Page','edit','/doc/edit.do'));
+			
+		}
+	});
+	function docdel() { if (confirm('WARNING: You are about to delete this page. Confirm?')) window.location='/doc/delete.do'; }
+cplusplus.ready();
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

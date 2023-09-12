@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 #define human_take_parameters const string first_name, const string last_name, int age
@@ -44,7 +45,7 @@ public:
 		cout << "HConstructor:\t" << this << endl;
 	}
 
-	~Human() {
+	virtual ~Human() {
 		cout << "HDestructor:\t" << this << endl;
 	}
 
@@ -52,6 +53,10 @@ public:
 		cout << last_name << " " << first_name << " " << age << " y.o." << endl;
 	}
 };
+
+std::ostream& operator<<(std::ostream os, const Human& obj) {
+	return os << obj.get_last_name() << " " << obj.get_first_name() << " " << obj.get_age() << " лет";
+}
 
 #define student_take_parameters const string& speciality, const string& group, double rating, double attendance
 #define student_give_parameters speciality, group, rating, attendance
@@ -107,6 +112,10 @@ public:
 	void print()const {
 		Human::print();
 		cout << speciality << " " << group << " " << rating << " " << attendance << endl;
+	}
+
+	~Student() {
+		cout << "SDestructor\t" << this << endl;
 	}
 
 };
@@ -182,6 +191,12 @@ public:
 	}
 };
 
+
+
+void print(Human* group[], const int n);
+
+void save(Human* group[], const int n, const char sz_filename[]);
+
 //#define INHERITANCE_CHECK
 
 void main() {
@@ -204,13 +219,25 @@ void main() {
 	Human* group[] = {
 		new Student("Pinkman", "Jessie", 22, "Chemistry", "WW_220", 90, 95),
 		new Teacher("Whaite", "Walter", 50, "Chemistry", 20),
-		new Graduate("Schrader", "Hank", 40, "Criminalistic", "OBN", 80, 70, "How to catch Heisenbers")
+		new Graduate("Schrader", "Hank", 40, "Criminalistic", "OBN", 80, 70, "How to catch Heisenbers"),
+		new Student ("Vercetti", "Tomas", 30, "Thieft", "Vice", 98, 99),
+		new Teacher ("Diaz", "Ricardo", 50, "Weapons distribution", 25)
 	};
 	cout << delimeter << endl;
+	print(group, sizeof(group) / sizeof(group[0]));
+
+}
+
+void save(Human* group[], const int n, const char sz_filename[]) {
+	std::ofstream fout(sz_filename);
+	fout.close();
+}
+
+void print(Human* group[], const int n) {
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]); i++)
 	{
-		group[i]->print();
+		//group[i]->print();
+		cout << *group[i] << endl;
 		cout << delimeter << endl;
 	}
-
 }
