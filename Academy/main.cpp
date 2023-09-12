@@ -49,13 +49,13 @@ public:
 		cout << "HDestructor:\t" << this << endl;
 	}
 
-	virtual void print()const {
-		cout << last_name << " " << first_name << " " << age << " y.o." << endl;
+	virtual std::ostream& print(std::ostream& os)const {
+		return os << last_name << " " << first_name << " " << age << " y.o.";
 	}
 };
 
-std::ostream& operator<<(std::ostream os, const Human& obj) {
-	return os << obj.get_last_name() << " " << obj.get_first_name() << " " << obj.get_age() << " лет";
+std::ostream& operator<<(std::ostream& os, const Human& obj) {
+	return obj.print(os);
 }
 
 #define student_take_parameters const string& speciality, const string& group, double rating, double attendance
@@ -109,9 +109,8 @@ public:
 		cout << "SConstructor:\t" << this << endl;
 	}
 
-	void print()const {
-		Human::print();
-		cout << speciality << " " << group << " " << rating << " " << attendance << endl;
+	std::ostream& print(std::ostream& os)const {
+		return Human::print(os) << " " << speciality << " " << group << " " << rating << " " << attendance;
 	}
 
 	~Student() {
@@ -155,9 +154,8 @@ public:
 		cout << "TDestructor:\t" << this << endl;
 	}
 
-	void print()const {
-		Human::print();
-		cout << speciality << " " << experience << " years" << endl;
+	std::ostream&  print(std::ostream& os)const {
+		return Human::print(os)<< " " << speciality << " " << experience << " years";
 	}
 
 };
@@ -185,9 +183,8 @@ public:
 		cout << "GDestructor:\t" << this << endl;
 	}
 
-	void print()const {
-		Student::print();
-		cout << subject << endl;
+	std::ostream& print(std::ostream& os)const {
+		return Student::print(os) << " " << subject;
 	}
 };
 
@@ -234,7 +231,7 @@ void save(Human* group[], const int n, const char sz_filename[]) {
 }
 
 void print(Human* group[], const int n) {
-	for (int i = 0; i < sizeof(group) / sizeof(group[0]); i++)
+	for (int i = 0; i < n; i++)
 	{
 		//group[i]->print();
 		cout << *group[i] << endl;
