@@ -5,8 +5,10 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+#define tab "\t"
 //#define WRITE_TO_FILE
 //#define READ_FROM_FILE
+//#define SWAP_IP_MAC
 
 void main() {
 	setlocale(LC_ALL, "");
@@ -46,6 +48,61 @@ void main() {
 	}
 
 #endif // READ_FROM_FILE
+
+#ifdef SWAP_IP_MAC
+    std::ofstream fout("201 ready.txt");
+	std::ifstream fin;
+	fin.open("201 RAW.txt");
+	if (fin.is_open())
+	{
+		cout << "File is open: \n" << endl;
+		const int size = 24;
+		std::string buff[size]{};
+		for (int i = 0; i < 12; i++)
+		{
+			fin >> buff[i] >> buff[i+1];
+			cout << buff[i + 1] << tab << buff[i] << endl;
+			fout << buff[i + 1] << tab << buff[i] << endl;
+		}
+	    fin.close();
+	}
+	else
+	{
+		std::cerr << "Error: file not found!" << endl;
+		
+	}
+	fout.close();
+	system("notepad 201 ready.txt");
+#endif // SWAP_IP_MAC
+
+	std::ofstream fout("201.dhcpd");
+	std::ifstream fin;
+	fin.open("201 RAW.txt");
+	if (fin.is_open())
+	{
+		cout << "File is open: \n" << endl;
+		const int size = 24;
+		std::string buff[size]{};
+		for (int i = 1; i <= 12; i++)
+		{
+			fin >> buff[i-1] >> buff[i];
+			cout << "host 201-" << i << "\n" << "{\n" << tab << "hardware ethernet" << tab << buff[i] << ";" << endl;
+			cout << tab << "fixed-address\t" << tab << buff[i-1] << ";\n}\n" << endl;
+			fout << "host 201-" << i << "\n" << "{\n" << tab << "hardware ethernet" << tab << buff[i] << ";" << endl;
+			fout << tab << "fixed-address\t" << tab << buff[i-1] << ";\n}\n" << endl;
+
+		}
+		fin.close();
+	}
+	else
+	{
+		std::cerr << "Error: file not found!" << endl;
+
+	}
+	fout.close();
+	system("notepad 201.dhcpd");
+
+	
 
   
 }
