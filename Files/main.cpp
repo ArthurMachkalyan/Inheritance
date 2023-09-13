@@ -9,6 +9,7 @@ using std::endl;
 //#define WRITE_TO_FILE
 //#define READ_FROM_FILE
 //#define SWAP_IP_MAC
+#define NETWORKS
 
 void main() {
 	setlocale(LC_ALL, "");
@@ -75,6 +76,7 @@ void main() {
 	system("notepad 201 ready.txt");
 #endif // SWAP_IP_MAC
 
+#ifdef NETWORKS
 	std::ofstream fout("201.dhcpd");
 	std::ifstream fin;
 	fin.open("201 RAW.txt");
@@ -101,8 +103,5 @@ void main() {
 	}
 	fout.close();
 	system("notepad 201.dhcpd");
-
-	
-
-  
+#endif // NETWORKS
 }
