@@ -1,0 +1,5 @@
+class Student: Jessie         Pinkman        22 Chemistry                WW_220  90      95      
+class Teacher: Walter         Whaite         50 Chemistry                20 
+class Graduate: Hank           Schrader       40 Criminalistic            OBN     80      70       
+class Student: Tomas          Vercetti       30 Thieft                   Vice    98      99      
+class Teacher: Ricardo        Diaz           50 Weapons distribution     25 
