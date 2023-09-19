@@ -415,10 +415,7 @@ Human** load(const char sz_filename[], int& n) {
 			group[i] = human_factory(buffer);
 			if(group[i])fin >> *group[i];
 		}
-
 		fin.close();
-
-
 	}
 	else
 	{
