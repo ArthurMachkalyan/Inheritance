@@ -78,6 +78,7 @@ public:
 	}
 
 	~Shape() {}
+
 };
 
 class Square : public Shape {
@@ -92,6 +93,10 @@ public:
 	}
 
 	Square(double side, shape_take_parameters) : Shape(shape_give_parameters) {
+		set_color(color);
+		set_start_x(start_x);
+		set_start_y(start_y);
+		set_line_width(line_width);
 		set_side(side);
 	}
 
@@ -106,7 +111,6 @@ public:
 	}
 
 	void draw()const override {
-		cout << endl;
 		/*for (int i = 0; i < side; i++)
 		{
 			for (int i = 0; i < side; i++)
@@ -116,7 +120,8 @@ public:
 			cout << endl;
 		}*/
 
-	
+		cout << endl;
+
 		HWND hwnd = GetConsoleWindow(); // 1) Получаем окно консоли:
 		HDC hdc = GetDC(hwnd); // 2) Получаем контекст устройства для окна консоли 
 
@@ -139,19 +144,237 @@ public:
 		ReleaseDC(hwnd, hdc);
 	}
 
+	void info() {
+		cout << "Длина стороны:  \t" << get_side() << endl;
+		cout << "Площадь фигуры: \t" << get_area() << endl;
+		cout << "Периметр фигуры: \t" << get_perimeter() << endl;
+	}
+
+};
+
+class Rectangle : public Shape {
+	double side_a;
+	double side_b;
+public:
+	double get_side_a()const {
+		return side_a;
+	}
+	double get_side_b()const {
+		return side_b;
+	}
+
+	void set_side_a(double side_a) {
+		this->side_a = side_a;
+	}
+	void set_side_b(double side_b) {
+		this->side_b = side_b;
+	}
+
+	double get_area()const override {
+		return side_a * side_b;
+	}
+	double get_perimeter()const override {
+		return (side_a + side_b) * 2;
+	}
+
+
+	void draw()const override {
+		
+		HWND hwnd = GetConsoleWindow();
+		HDC hdc = GetDC(hwnd);
+
+		HPEN hPen = CreatePen(PS_SOLID, line_width, color);
+		HBRUSH hBrush = CreateSolidBrush(color);
+
+		SelectObject(hdc, hPen);
+		SelectObject(hdc, hBrush);
+
+		::Rectangle(hdc, start_x, start_y, start_x + side_a, start_y + side_b);
+
+		DeleteObject(hPen);
+		DeleteObject(hBrush);
+
+		ReleaseDC(hwnd, hdc);
+
+	}
+	
+	Rectangle(double side_a, double side_b, shape_take_parameters) : Shape(shape_give_parameters) {
+		set_color(color);
+		set_start_x(start_x);
+		set_start_y(start_y);
+		set_line_width(line_width);
+		set_side_a(side_a);
+		set_side_b(side_b);
+	}
+
+	~Rectangle() {}
+
+	void info() {
+		cout << "Сторона А:\t" << get_side_a() << endl;
+		cout << "Сторона B: \t" << get_side_b() << endl;
+		cout << "Площадь фигуры:\t" << get_area() << endl;
+		cout << "Периметр фигуры:\t" << get_perimeter() << endl << endl;
+	}
+};
+
+
+
+class Triangle : public Shape {
+	double side_a;
+	double side_b;
+	double side_c;
+	double height;
+public:
+	double get_side_a()const {
+		return side_a;
+	}
+	double get_side_b()const {
+		return side_b;
+	}
+	double get_side_c()const {
+		return side_c;
+	}
+	double get_height()const {
+		return height;
+	}
+
+	void set_side_a(double side_a) {
+		this->side_a = side_a;
+	}
+	void set_side_b(double side_b) {
+		this->side_b = side_b;
+	}
+	void set_side_c(double side_c) {
+		this->side_c = side_c;
+	}
+	void set_height(double height) {
+		this->height = height;
+	}
+
+	double get_area()const override {
+		return (side_a * height) / 2;
+	}
+
+	double get_perimeter()const override {
+		return side_a + side_b + side_c;
+	}
+	
+	Triangle(double side_a, double side_b, double side_c, double height, shape_take_parameters) : Shape(shape_give_parameters) {
+		set_color(color);
+		set_start_x(start_x);
+		set_start_y(start_y);
+		set_line_width(line_width);
+		set_side_a(side_a);
+		set_side_b(side_b);
+		set_side_c(side_c);
+		set_height(height);
+	}
+
+	~Triangle() {}
+
+	void draw()const override {
+
+		HWND hwnd = GetConsoleWindow();
+		HDC hdc = GetDC(hwnd);
+
+		HPEN hPen = CreatePen(PS_SOLID, line_width, color);
+		HBRUSH hBrush = CreateSolidBrush(color);
+
+		SelectObject(hdc, hPen);
+		SelectObject(hdc, hBrush);
+
+		::Rectangle(hdc, start_x, start_y, start_x + side_a, start_y + side_b);
+
+		DeleteObject(hPen);
+		DeleteObject(hBrush);
+
+		ReleaseDC(hwnd, hdc);
+
+	}
+
+	void info() {
+		cout << "Сторона А:\t" << get_side_a() << endl;
+		cout << "Сторона B: \t" << get_side_b() << endl;
+		cout << "Сторона C: \t" << get_side_c() << endl;
+		cout << "Высота: \t" << get_side_c() << endl;
+		cout << "Площадь фигуры:\t" << get_area() << endl;
+		cout << "Периметр фигуры:\t" << get_perimeter() << endl << endl;
+	}
+	
+};
+
+static const double Pi = 3.14;
+
+class Circle : public Shape {
+	double radius;
+public:
+	double get_radius()const {
+		return radius;
+	}
+	void set_radius(double radius) {
+		this->radius = radius;
+	}
+
+	double get_perimeter()const override {
+		return 2 * Pi * radius;
+	}
+
+	double get_area()const override {
+		return Pi * pow(radius, 2);
+	}
+
+	Circle(double radius, shape_take_parameters) : Shape(shape_give_parameters) {
+		set_color(color);
+		set_start_x(start_x);
+		set_start_y(start_y);
+		set_line_width(line_width);
+		set_radius(radius);
+	}
+
+	~Circle() {}
+
+	void draw()const override {
+
+		HWND hwnd = GetConsoleWindow();
+		HDC hdc = GetDC(hwnd);
+
+		HPEN hPen = CreatePen(PS_SOLID, line_width, color);
+		HBRUSH hBrush = CreateSolidBrush(color);
+
+		SelectObject(hdc, hPen);
+		SelectObject(hdc, hBrush);
+
+		::Rectangle(hdc, start_x, start_y, start_x , start_y);
+
+		DeleteObject(hPen);
+		DeleteObject(hBrush);
+
+		ReleaseDC(hwnd, hdc);
+
+	}
+
+	void info() {
+		cout << "Радиус:\t" << get_radius() << endl;
+		cout << "Площадь фигуры:\t" << get_area() << endl;
+		cout << "Периметр фигуры:\t" << get_perimeter() << endl << endl;
+	}
 };
 
 void main() {
 	setlocale(LC_ALL, "");
 
-	Square square(150, Color::red, 100, 100, 5);
-	cout << "Длина стороны:\t " << square.get_side() << endl;
-	cout << "Периметр:\t " << square.get_perimeter() << endl;
-	cout << "Площадь:\t " << square.get_area() << endl;
+	Square square(150, Color::red, 200, 20, 5);
+	square.info();
 	square.draw();
-	cout << endl;
-	cout << endl;
-	cout << endl;
-	cout << endl;
-	cout << endl;
+
+	class Rectangle rect(200, 150,Color::blue, 400, 20, 5);
+	rect.info();
+	rect.draw();
+
+	class Triangle trigon(20, 5, 10, 15, Color::yellow, 200, 20, 5);
+	trigon.info();
+	trigon.draw();
+
+	class Circle circ(5, Color::red, 200, 20, 5);
+	circ.info();
 }
