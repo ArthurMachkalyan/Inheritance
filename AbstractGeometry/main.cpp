@@ -1,8 +1,8 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <Windows.h>
 using namespace std;
 
-// enum (enumeration - Пречисление) - набор целочисленных констант.
+// enum (enumeration - РџСЂРµС‡РёСЃР»РµРЅРёРµ) - РЅР°Р±РѕСЂ С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹С… РєРѕРЅСЃС‚Р°РЅС‚.
 enum Color {
 	red    = 0x000000FF,
 	green  = 0x0000FF00,
@@ -122,22 +122,22 @@ public:
 
 		cout << endl;
 
-		HWND hwnd = GetConsoleWindow(); // 1) Получаем окно консоли:
-		HDC hdc = GetDC(hwnd); // 2) Получаем контекст устройства для окна консоли 
+		HWND hwnd = GetConsoleWindow(); // 1) РџРѕР»СѓС‡Р°РµРј РѕРєРЅРѕ РєРѕРЅСЃРѕР»Рё:
+		HDC hdc = GetDC(hwnd); // 2) РџРѕР»СѓС‡Р°РµРј РєРѕРЅС‚РµРєСЃС‚ СѓСЃС‚СЂРѕР№СЃС‚РІР° РґР»СЏ РѕРєРЅР° РєРѕРЅСЃРѕР»Рё 
 
-		HPEN hPen = CreatePen(PS_SOLID, line_width, color); // 3) Создаем карандаш, который рисует контур фигуры
-		HBRUSH hBrush = CreateSolidBrush(color); // 4) Создаем кисть, она рисует заливку фигуры
+		HPEN hPen = CreatePen(PS_SOLID, line_width, color); // 3) РЎРѕР·РґР°РµРј РєР°СЂР°РЅРґР°С€, РєРѕС‚РѕСЂС‹Р№ СЂРёСЃСѓРµС‚ РєРѕРЅС‚СѓСЂ С„РёРіСѓСЂС‹
+		HBRUSH hBrush = CreateSolidBrush(color); // 4) РЎРѕР·РґР°РµРј РєРёСЃС‚СЊ, РѕРЅР° СЂРёСЃСѓРµС‚ Р·Р°Р»РёРІРєСѓ С„РёРіСѓСЂС‹
 
-		// 5) Выбираем, чем и на чем рисовать. Рисуют всегда на контексте устройства,
-		// для рисования используем карандаш
+		// 5) Р’С‹Р±РёСЂР°РµРј, С‡РµРј Рё РЅР° С‡РµРј СЂРёСЃРѕРІР°С‚СЊ. Р РёСЃСѓСЋС‚ РІСЃРµРіРґР° РЅР° РєРѕРЅС‚РµРєСЃС‚Рµ СѓСЃС‚СЂРѕР№СЃС‚РІР°,
+		// РґР»СЏ СЂРёСЃРѕРІР°РЅРёСЏ РёСЃРїРѕР»СЊР·СѓРµРј РєР°СЂР°РЅРґР°С€
 		SelectObject(hdc, hPen);
 		SelectObject(hdc, hBrush);
 		
-		// 6) Рисуем прямоугольник. Для его рисования указать координаты верхнего-левого
-		// и правого-нижнего угла
+		// 6) Р РёСЃСѓРµРј РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє. Р”Р»СЏ РµРіРѕ СЂРёСЃРѕРІР°РЅРёСЏ СѓРєР°Р·Р°С‚СЊ РєРѕРѕСЂРґРёРЅР°С‚С‹ РІРµСЂС…РЅРµРіРѕ-Р»РµРІРѕРіРѕ
+		// Рё РїСЂР°РІРѕРіРѕ-РЅРёР¶РЅРµРіРѕ СѓРіР»Р°
 		Rectangle(hdc, start_x, start_y, start_x + side, start_y + side);
 
-		// 7) Удаляем все созданные инструменты
+		// 7) РЈРґР°Р»СЏРµРј РІСЃРµ СЃРѕР·РґР°РЅРЅС‹Рµ РёРЅСЃС‚СЂСѓРјРµРЅС‚С‹
 		DeleteObject(hBrush);
 		DeleteObject(hPen);
 
@@ -145,9 +145,9 @@ public:
 	}
 
 	void info() {
-		cout << "Длина стороны:  \t" << get_side() << endl;
-		cout << "Площадь фигуры: \t" << get_area() << endl;
-		cout << "Периметр фигуры: \t" << get_perimeter() << endl;
+		cout << "Р”Р»РёРЅР° СЃС‚РѕСЂРѕРЅС‹:  \t" << get_side() << endl;
+		cout << "РџР»РѕС‰Р°РґСЊ С„РёРіСѓСЂС‹: \t" << get_area() << endl;
+		cout << "РџРµСЂРёРјРµС‚СЂ С„РёРіСѓСЂС‹: \t" << get_perimeter() << endl;
 	}
 
 };
@@ -210,10 +210,10 @@ public:
 	~Rectangle() {}
 
 	void info() {
-		cout << "Сторона А:\t" << get_side_a() << endl;
-		cout << "Сторона B: \t" << get_side_b() << endl;
-		cout << "Площадь фигуры:\t" << get_area() << endl;
-		cout << "Периметр фигуры:\t" << get_perimeter() << endl << endl;
+		cout << "РЎС‚РѕСЂРѕРЅР° Рђ:\t" << get_side_a() << endl;
+		cout << "РЎС‚РѕСЂРѕРЅР° B: \t" << get_side_b() << endl;
+		cout << "РџР»РѕС‰Р°РґСЊ С„РёРіСѓСЂС‹:\t" << get_area() << endl;
+		cout << "РџРµСЂРёРјРµС‚СЂ С„РёРіСѓСЂС‹:\t" << get_perimeter() << endl << endl;
 	}
 };
 
@@ -293,12 +293,12 @@ public:
 	}
 
 	void info() {
-		cout << "Сторона А:\t" << get_side_a() << endl;
-		cout << "Сторона B: \t" << get_side_b() << endl;
-		cout << "Сторона C: \t" << get_side_c() << endl;
-		cout << "Высота: \t" << get_side_c() << endl;
-		cout << "Площадь фигуры:\t" << get_area() << endl;
-		cout << "Периметр фигуры:\t" << get_perimeter() << endl << endl;
+		cout << "РЎС‚РѕСЂРѕРЅР° Рђ:\t" << get_side_a() << endl;
+		cout << "РЎС‚РѕСЂРѕРЅР° B: \t" << get_side_b() << endl;
+		cout << "РЎС‚РѕСЂРѕРЅР° C: \t" << get_side_c() << endl;
+		cout << "Р’С‹СЃРѕС‚Р°: \t" << get_side_c() << endl;
+		cout << "РџР»РѕС‰Р°РґСЊ С„РёРіСѓСЂС‹:\t" << get_area() << endl;
+		cout << "РџРµСЂРёРјРµС‚СЂ С„РёРіСѓСЂС‹:\t" << get_perimeter() << endl << endl;
 	}
 	
 };
@@ -354,9 +354,9 @@ public:
 	}
 
 	void info() {
-		cout << "Радиус:\t" << get_radius() << endl;
-		cout << "Площадь фигуры:\t" << get_area() << endl;
-		cout << "Периметр фигуры:\t" << get_perimeter() << endl << endl;
+		cout << "Р Р°РґРёСѓСЃ:\t" << get_radius() << endl;
+		cout << "РџР»РѕС‰Р°РґСЊ С„РёРіСѓСЂС‹:\t" << get_area() << endl;
+		cout << "РџРµСЂРёРјРµС‚СЂ С„РёРіСѓСЂС‹:\t" << get_perimeter() << endl << endl;
 	}
 };
 
