@@ -75,6 +75,21 @@ public:
 	virtual double get_perimeter()const = 0;
 	virtual void draw()const = 0;
 	void draw(WINGDIAPI BOOL(__stdcall*DrawFunction)(HDC, int, int, int, int), double horizontal, double vertical)const {
+		// __stdcall - конвенция вызовов для WinAPI-функций 
+		//для С/С++ функций, по умолчанию используется конвенция __cdecl
+		// в х64-приложениях, для функций по умолчанию используется конвенция __fastcall
+
+		/*
+		---------------------------------
+		type [calling_convention] name(parameters)
+		{
+		    .....;
+			group-of-statements;
+			.....;
+		}
+		----------------------------------
+		*/
+		
 		HWND hwnd = GetConsoleWindow();
 		HDC hdc = GetDC(hwnd);
 
