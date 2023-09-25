@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Files", "Files\Files.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AbstractGeometry", "AbstractGeometry\AbstractGeometry.vcxproj", "{52F07936-2139-4108-AA24-375939BE1629}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FunctionPointers", "FunctionPointers\FunctionPointers.vcxproj", "{55700711-3688-4841-88A2-8F2A713CF225}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{52F07936-2139-4108-AA24-375939BE1629}.Release|x64.Build.0 = Release|x64
 		{52F07936-2139-4108-AA24-375939BE1629}.Release|x86.ActiveCfg = Release|Win32
 		{52F07936-2139-4108-AA24-375939BE1629}.Release|x86.Build.0 = Release|Win32
+		{55700711-3688-4841-88A2-8F2A713CF225}.Debug|x64.ActiveCfg = Debug|x64
+		{55700711-3688-4841-88A2-8F2A713CF225}.Debug|x64.Build.0 = Debug|x64
+		{55700711-3688-4841-88A2-8F2A713CF225}.Debug|x86.ActiveCfg = Debug|Win32
+		{55700711-3688-4841-88A2-8F2A713CF225}.Debug|x86.Build.0 = Debug|Win32
+		{55700711-3688-4841-88A2-8F2A713CF225}.Release|x64.ActiveCfg = Release|x64
+		{55700711-3688-4841-88A2-8F2A713CF225}.Release|x64.Build.0 = Release|x64
+		{55700711-3688-4841-88A2-8F2A713CF225}.Release|x86.ActiveCfg = Release|Win32
+		{55700711-3688-4841-88A2-8F2A713CF225}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -74,7 +74,25 @@ public:
 	virtual double get_area()const = 0;
 	virtual double get_perimeter()const = 0;
 	virtual void draw()const = 0;
+	void draw(WINGDIAPI BOOL(__stdcall*DrawFunction)(HDC, int, int, int, int), double horizontal, double vertical)const {
+		HWND hwnd = GetConsoleWindow();
+		HDC hdc = GetDC(hwnd);
 
+		HPEN hPen = CreatePen(PS_SOLID, line_width, color);
+		HBRUSH hBrush = CreateSolidBrush(color);
+
+		SelectObject(hdc, hPen);
+		SelectObject(hdc, hBrush);
+
+
+		::Ellipse(hdc, start_x, start_y, start_x + horizontal, start_y + vertical);
+
+		DeleteObject(hPen);
+		DeleteObject(hBrush);
+
+		ReleaseDC(hwnd, hdc);
+	}
+	
 	Shape(shape_take_parameters) {
 		set_color(color);
 		set_start_x(start_x);
@@ -202,23 +220,7 @@ public:
 
 
 	void draw()const override {
-		
-		HWND hwnd = GetConsoleWindow();
-		HDC hdc = GetDC(hwnd);
-
-		HPEN hPen = CreatePen(PS_SOLID, line_width, color);
-		HBRUSH hBrush = CreateSolidBrush(color);
-
-		SelectObject(hdc, hPen);
-		SelectObject(hdc, hBrush);
-
-		::Rectangle(hdc, start_x, start_y, start_x + side_a, start_y + side_b);
-
-		DeleteObject(hPen);
-		DeleteObject(hBrush);
-
-		ReleaseDC(hwnd, hdc);
-
+		Shape::draw(::Rectangle, side_a, side_b);
 	}
 	
 	Rectangle(double side_a, double side_b, shape_take_parameters) : Shape(shape_give_parameters) {
@@ -253,6 +255,31 @@ public:
 	virtual double get_height()const = 0;
 	Triangle(shape_take_parameters) :Shape(shape_give_parameters) {}
 	~Triangle() {}
+	void draw(WINGDIAPI BOOL (__stdcall *Polygon)(HDC, const POINT*, int ), const POINT* vertex)const {
+		HWND hwnd = GetConsoleWindow();
+		HDC hdc = GetDC(hwnd);
+
+		HPEN hPen = CreatePen(PS_SOLID, line_width, color);
+		HBRUSH hBrush = CreateSolidBrush(color);
+
+		SelectObject(hdc, hPen);
+		SelectObject(hdc, hBrush);
+
+		/*POINT vertex[] =
+		{
+			{start_x, start_y + side},
+			{start_x + side, start_y + side},
+			{start_x + side / 2, start_y + side - get_height()}
+
+		};*/
+
+		Polygon(hdc, vertex, 3);
+
+		DeleteObject(hPen);
+		DeleteObject(hBrush);
+
+		ReleaseDC(hwnd, hdc);
+	}
 	/*double side_a;
 	double side_b;
 	double side_c;
@@ -357,14 +384,6 @@ public:
 		return side * 3;
 	}
 	void draw()const override {
-		HWND hwnd = GetConsoleWindow();
-		HDC hdc = GetDC(hwnd);
-
-		HPEN hPen = CreatePen(PS_SOLID, line_width, color);
-		HBRUSH hBrush = CreateSolidBrush(color);
-
-		SelectObject(hdc, hPen);
-		SelectObject(hdc, hBrush);
 
 		POINT vertex[] =
 		{
@@ -374,12 +393,8 @@ public:
 
 		};
 
-		::Polygon(hdc, vertex, 3);
+		Triangle::draw(::Polygon, vertex);
 
-		DeleteObject(hPen);
-		DeleteObject(hBrush);
-
-		ReleaseDC(hwnd, hdc);
 	}
 
 	EquilateralTriangle(double side, shape_take_parameters) :Triangle(shape_give_parameters) {
@@ -449,23 +464,7 @@ public:
 
 	void draw()const override {
 
-		HWND hwnd = GetConsoleWindow();
-		HDC hdc = GetDC(hwnd);
-
-		HPEN hPen = CreatePen(PS_SOLID, line_width, color);
-		HBRUSH hBrush = CreateSolidBrush(color);
-
-		SelectObject(hdc, hPen);
-		SelectObject(hdc, hBrush);
-
-
-		::Ellipse(hdc, start_x, start_y, start_x + get_diameter(), start_y + get_diameter());
-
-		DeleteObject(hPen);
-		DeleteObject(hBrush);
-
-		ReleaseDC(hwnd, hdc);
-
+		Shape::draw(::Ellipse, (int)get_diameter(), (int)get_diameter());
 	}
 
 	Circle(double radius, shape_take_parameters) : Shape(shape_give_parameters) {
@@ -485,6 +484,7 @@ public:
 		Shape::info();
 	}
 };
+
 
 #define delimeter "\n--------------------------\n"
 
