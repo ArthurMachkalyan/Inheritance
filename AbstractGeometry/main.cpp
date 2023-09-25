@@ -24,6 +24,7 @@ class Shape {
 
 	static const int MIN_LINE_WIDTH = 1;
 	static const int MAX_LINE_WIDTH = 30;
+
 protected:
 	Color color;
 	int start_x;
